@@ -10,6 +10,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   User.find()
     .then(user => {
+      console.log('------------------------------------');
       console.log(user);
       res.json(user);
     })
@@ -120,6 +121,9 @@ router.delete('/:id', (req, res, next) => {
 
   User.findOneAndRemove({ _id: id })
     .then(() => {
+      res.json({
+        message: 'Deleted user'
+      });
       res.status(204).end();
     })
     .catch(err => {
