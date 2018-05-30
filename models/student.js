@@ -1,10 +1,12 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const studentSchema = new mongoose.Schema({
   firstname: { type: String, required: true },
-  lastname: { type: String, required: true }
+  lastname: { type: String, required: true },
+  period: { type: Schema.Types.ObjectId, ref: 'Period' }
 }, { timestamps: true });
 
 studentSchema.set('toObject', {

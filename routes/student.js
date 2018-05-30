@@ -8,10 +8,9 @@ const router = express.Router();
 // GET ALL STUDENTS
 router.get('/', (req, res, next) => {
   Student.find()
-    .then(student => {
-      console.log('------------------------------------');
-      console.log(student);
-      res.json(student);
+    .populate('period')
+    .then(students => {
+      res.json(students.map(student => student.toObject()));
     })
     .catch(err => {
       next(err);
@@ -19,8 +18,8 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  const { firstname, lastname } = req.body;
-  const newStudent = { firstname, lastname };
+  const { firstname, lastname, period } = req.body;
+  const newStudent = { firstname, lastname, period };
   console.log(newStudent);
 
   Student.create(newStudent)

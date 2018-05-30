@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const passport = require('passport');
 
+
 const localStrategy = require('./passport/local');
 const jwtStrategy = require('./passport/jwt');
 const { PORT, MONGODB_URI } = require('./config');
@@ -16,6 +17,7 @@ const cors = require('cors');
 const usersRouter = require('./routes/user');
 const authRouter = require('./routes/auth');
 const studentRouter = require('./routes/student');
+const periodRouter = require('./routes/period');
 
 // Create an Express application
 const app = express();
@@ -42,6 +44,10 @@ passport.use(jwtStrategy);
 app.use('/api', authRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/students', studentRouter);
+app.use('/api/periods', periodRouter);
+
+// Are the periods loaded?
+
 
 // Catch-all 404
 app.use(function (req, res, next) {
