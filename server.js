@@ -15,6 +15,7 @@ const cors = require('cors');
 // Routers
 const usersRouter = require('./routes/user');
 const authRouter = require('./routes/auth');
+const studentRouter = require('./routes/student');
 
 // Create an Express application
 const app = express();
@@ -34,15 +35,13 @@ app.use(express.static('public'));
 
 // Parse request body
 app.use(express.json());
-// app.use(express.json({
-//   type: function() { return true; }
-// }));
 
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 
 app.use('/api', authRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/students', studentRouter);
 
 // Catch-all 404
 app.use(function (req, res, next) {
