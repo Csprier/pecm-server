@@ -10,6 +10,7 @@ const passport = require('passport');
 const localStrategy = require('./passport/local');
 const jwtStrategy = require('./passport/jwt');
 const { PORT, MONGODB_URI } = require('./config');
+const cors = require('cors');
 
 // Routers
 const usersRouter = require('./routes/user');
@@ -24,18 +25,18 @@ app.use(morgan(process.env.NODE_ENV === 'developement' ? 'dev' : 'common', {
 }));
 
 // CORS
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
-  next();
-});
+app.use(cors());
+app.options('*', cors());
+console.log('CORS IS ENABLED');
 
 // Create a statis webserver
 app.use(express.static('public'));
 
 // Parse request body
 app.use(express.json());
+// app.use(express.json({
+//   type: function() { return true; }
+// }));
 
 passport.use(localStrategy);
 passport.use(jwtStrategy);
