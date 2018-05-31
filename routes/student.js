@@ -37,6 +37,11 @@ router.post('/', (req, res, next) => {
     });
 });
 
+// UPDATE A STUDENT (after a period is assigned to them)
+router.put('/:id', (req, res, next) => {
+  
+});
+
 // DELETE A STUDENT BY ID
 router.delete('/:id', (req, res, next) => {
   const { id } = req.params;
