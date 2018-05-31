@@ -29,7 +29,7 @@ router.post('/', (req, res, next) => {
         .json(student)            
     })
     .catch(err => {
-      if (err.code === 11000) {
+      if (err.code === '11000') {
         err = new Error('This student already exists');
         err.status = 400;
       }
