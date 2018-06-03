@@ -19,7 +19,6 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  // Load Seed Period Seed Data
   // const periods = fs.readFileSync('/Users/cameronprier/Desktop/PECM/server/models/seed-period-data.json', 'utf-8');
   const { name, time, maxStudents } = req.body;
   const newPeriod = { name, time, maxStudents };

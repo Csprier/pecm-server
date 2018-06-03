@@ -38,8 +38,24 @@ router.post('/', (req, res, next) => {
 });
 
 // UPDATE A STUDENT (after a period is assigned to them)
-router.put('/:id', (req, res, next) => {
-  
+router.put('/:id/periods', (req, res, next) => {
+  const { id } = req.params;
+  const { periods } = req.body;
+  // /api/students/:id/periods
+  console.log('REQ BODY', req.body);
+
+  Student.findByIdAndUpdate(id, { $push: { periods: periods }}, { new: true })
+    .then(result => {
+      console.log(result);
+      if (result) {
+        res.json(result);
+      } else {
+        next();
+      }
+    })
+    .catch(err => {
+      console.error(err);
+    })
 });
 
 // DELETE A STUDENT BY ID
