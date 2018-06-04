@@ -40,11 +40,11 @@ router.post('/', (req, res, next) => {
 // UPDATE A STUDENT (after a period is assigned to them)
 router.put('/:id/periods', (req, res, next) => {
   const { id } = req.params;
-  const { periods } = req.body;
-  // /api/students/:id/periods
+  const { period } = req.body;
+  console.log(period)
   console.log('REQ BODY', req.body);
 
-  Student.findByIdAndUpdate(id, { $push: { periods: periods }}, { new: true })
+  Student.findByIdAndUpdate(id, { $push: { periods: period }}, { new: true })
     .then(result => {
       console.log(result);
       if (result) {
