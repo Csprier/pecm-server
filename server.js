@@ -46,9 +46,6 @@ app.use('/api/users', usersRouter);
 app.use('/api/students', studentRouter);
 app.use('/api/periods', periodRouter);
 
-// Are the periods loaded?
-
-
 // Catch-all 404
 app.use(function (req, res, next) {
   const err = new Error('Not Found');
