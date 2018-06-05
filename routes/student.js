@@ -47,7 +47,6 @@ router.put('/:id/periods', (req, res, next) => {
 
   Student.findByIdAndUpdate(id, { $push: { periods: period }}, { new: true })
     .then(result => {
-      console.log(result);
       if (result) {
         res.json(result);
       } else {
