@@ -65,3 +65,5 @@ mongoose.connect(MONGODB_URI)
       console.error(err);
     });
   });
+
+module.exports = app;
