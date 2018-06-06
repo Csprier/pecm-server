@@ -50,6 +50,7 @@ app.use('/api/periods', periodRouter);
 app.use(function (req, res, next) {
   const err = new Error('Not Found');
   err.status = 404;
+  console.error(err);
   next(err);
 });
 

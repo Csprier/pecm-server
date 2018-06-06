@@ -14,6 +14,7 @@ router.get('/', (req, res, next) => {
       res.json(periods.map(period => period.toObject()));
     })
     .catch(err => {
+      console.error(err);
       next(err);
     });
 });
@@ -35,6 +36,7 @@ router.post('/', (req, res, next) => {
         err = new Error('This period already exists');
         err.status = 400;
       }
+      console.error(err);
       next(err);
     });
 });
@@ -50,6 +52,7 @@ router.delete('/:id', (req, res, next) => {
       res.status(204).end();
     })
     .catch(err => {
+      console.error(err);
       next(err);
     });
 });

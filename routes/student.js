@@ -13,6 +13,7 @@ router.get('/', (req, res, next) => {
       res.json(students.map(student => student.toObject()));
     })
     .catch(err => {
+      console.error(err);
       next(err);
     });
 });
@@ -33,6 +34,7 @@ router.post('/', (req, res, next) => {
         err = new Error('This student already exists');
         err.status = 400;
       }
+      console.error(err);
       next(err);
     });
 });
@@ -56,6 +58,7 @@ router.put('/:id/periods', (req, res, next) => {
     })
     .catch(err => {
       console.error(err);
+      next(err);
     })
 });
 
@@ -71,6 +74,7 @@ router.delete('/:id', (req, res, next) => {
       res.status(204).end();
     })
     .catch(err => {
+      console.error(err);
       next(err);
     });
 });
