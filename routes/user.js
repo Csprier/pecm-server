@@ -10,8 +10,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   User.find()
     .then(user => {
-      console.log('------------------------------------');
-      console.log(user);
+      // console.log(user);
       res.json(user);
     })
     .catch(err => {
@@ -97,11 +96,11 @@ router.post('/', (req, res, next) => {
         password: digest, 
         fullname
       };
-      console.log(newUser);
+      // console.log(newUser);
       return User.create(newUser);
     })
     .then(result => {
-      console.log(result);
+      // console.log(result);
       return res.status(201)
         .location(`/api/users/${result.id}`)
         .json(result);

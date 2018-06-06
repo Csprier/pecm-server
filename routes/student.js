@@ -20,7 +20,7 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
   const { firstname, lastname, period } = req.body;
   const newStudent = { firstname, lastname, period };
-  console.log(newStudent);
+  // console.log(newStudent);
 
   Student.create(newStudent)
     .then(student => {
@@ -41,13 +41,13 @@ router.post('/', (req, res, next) => {
 router.put('/:id/periods', (req, res, next) => {
   const { id } = req.params;
   const { period } = req.body;
-  console.log('id', id)
-  console.log('period:', {period})
-  console.log('REQ BODY', req.body);
+  // console.log('id', id)
+  // console.log('period:', {period})
+  // console.log('REQ BODY', req.body);
 
   Student.findByIdAndUpdate(id, { $push: { periods: period }}, { new: true })
     .then(result => {
-      console.log(result);
+      // console.log(result);
       if (result) {
         res.json(result);
       } else {
