@@ -27,3 +27,9 @@ Testing:
 - chai-http
 - cross-env
 - nyc
+
+From the backend, you have control to:
+- See all students in the database
+- Create students for the database
+- Delete students from the database
+- Update student information
