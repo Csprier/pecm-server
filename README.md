@@ -41,5 +41,5 @@ JWT/Auth are located in the passport folder.
 
 All tied into the entry point of Server.js.
 
-Deployed server on Heroku! (There is no data in the root)
-https://pecm-server.herokuapp.com/ + /api/students || /api/users || /api/periods.
+Deployed server on Heroku! (There is no data in the root):
+- https://pecm-server.herokuapp.com/ + /api/students || /api/users || /api/periods.
