@@ -28,8 +28,15 @@ Testing:
 - cross-env
 - nyc
 
-From the backend, you have control to:
-- See all students in the database
-- Create students for the database
-- Delete students from the database
-- Update student information
+From the backend, you have CRUD control over: 
+- Users
+- Periods
+- Students
+
+(All files are organized to include names of their respective processes) 
+- Routes folder
+- Models folder
+
+JWT/Auth are located in the passport folder.
+
+All tied into the entry point of Server.js.
