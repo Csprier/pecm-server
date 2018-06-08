@@ -10,6 +10,7 @@ This app uses:
 - Node
 - MongoDB
 - Mongoose
+- mLab
 
 Authentication:
 - passport
