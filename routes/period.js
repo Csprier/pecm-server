@@ -4,8 +4,6 @@ const express = require('express');
 const Period = require('../models/period');
 const fs = require('fs');
 
-// const seedPeriods = require('../models/seed-period-data.json');
-
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
@@ -20,10 +18,8 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  // const periods = fs.readFileSync('/Users/cameronprier/Desktop/PECM/server/models/seed-period-data.json', 'utf-8');
   const { name, time, maxStudents } = req.body;
   const newPeriod = { name, time, maxStudents };
-  // console.log(newPeriod);
 
   Period.create(newPeriod)
     .then(period => {

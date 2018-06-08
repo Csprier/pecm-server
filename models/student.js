@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const studentSchema = new mongoose.Schema({
   firstname: { type: String, required: true },
   lastname: { type: String, required: true },
-  periods: [{ type: Schema.Types.ObjectId, ref: 'Period' }] // wrap in []'s so a student can have more than one period
+  periods: [{ type: Schema.Types.ObjectId, ref: 'Period' }]
 }, { timestamps: true });
 
 studentSchema.set('toObject', {

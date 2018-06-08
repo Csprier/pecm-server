@@ -18,10 +18,10 @@ router.get('/', (req, res, next) => {
     });
 });
 
+// CREATE A STUDENT
 router.post('/', (req, res, next) => {
   const { firstname, lastname, period } = req.body;
   const newStudent = { firstname, lastname, period };
-  // console.log(newStudent);
 
   Student.create(newStudent)
     .then(student => {
@@ -39,17 +39,13 @@ router.post('/', (req, res, next) => {
     });
 });
 
-// UPDATE A STUDENT (after a period is assigned to them)
+// UPDATE A STUDENT
 router.put('/:id/periods', (req, res, next) => {
   const { id } = req.params;
   const { period } = req.body;
-  // console.log('id', id)
-  // console.log('period:', {period})
-  // console.log('REQ BODY', req.body);
 
   Student.findByIdAndUpdate(id, { $push: { periods: period }}, { new: true })
     .then(result => {
-      // console.log(result);
       if (result) {
         res.json(result);
       } else {
