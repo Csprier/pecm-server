@@ -30,7 +30,6 @@ app.use(morgan(process.env.NODE_ENV === 'developement' ? 'dev' : 'common', {
 // CORS
 app.use(cors());
 app.options('*', cors());
-console.log('CORS IS ENABLED');
 
 // Create a statis webserver
 app.use(express.static('public'));

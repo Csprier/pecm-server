@@ -43,7 +43,6 @@ describe('PECM API - Users', function () {
         .send({ password, fullname })
 
         .then(res => {
-          console.log(res);
           expect(res).to.have.status(422);
         });
     });

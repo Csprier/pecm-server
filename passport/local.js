@@ -10,7 +10,6 @@ const localStrategy = new LocalStrategy((username, password, done) => {
   User.findOne({ username })
     .then(results => {
       user = results;
-      console.log(user);
       
       if(!user) {
         return Promise.reject({
