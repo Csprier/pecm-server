@@ -58,6 +58,23 @@ router.put('/:id/periods', (req, res, next) => {
     })
 });
 
+router.delete('/:id/periods/:periodId', (req, res, next) => {
+  const { id, periodId } = req.params;
+
+  Student.findByIdAndUpdate(id, { $pull: { periods: periodId }}, { new: true })
+    .then(result => {
+      if (result) {
+        res.json(result);
+      } else {
+        next();
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      next(err);
+    })
+})
+
 // DELETE A STUDENT BY ID
 router.delete('/:id', (req, res, next) => {
   const { id } = req.params;
